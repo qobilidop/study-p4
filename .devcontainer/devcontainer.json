@@ -1,0 +1,9 @@
+// https://github.com/devcontainers/templates/blob/main/src/docker-existing-dockerfile/.devcontainer/devcontainer.json
+{
+    "name": "play-p4",
+    "build": {
+        "context": "..",
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "root"
+}
