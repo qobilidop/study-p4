@@ -1,0 +1,9 @@
+[submodule "dev/behavioral-model"]
+	path = dev/behavioral-model
+	url = https://github.com/p4lang/behavioral-model.git
+[submodule "dev/PI"]
+	path = dev/PI
+	url = https://github.com/p4lang/PI.git
+[submodule "dev/p4c"]
+	path = dev/p4c
+	url = https://github.com/p4lang/p4c.git
