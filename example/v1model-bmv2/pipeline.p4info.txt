@@ -1,0 +1,57 @@
+pkg_info {
+  arch: "v1model"
+}
+tables {
+  preamble {
+    id: 43901978
+    name: "I.forward"
+    alias: "forward"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.eth.dst_addr"
+    bitwidth: 48
+    match_type: EXACT
+  }
+  action_refs {
+    id: 18067284
+  }
+  action_refs {
+    id: 21257015
+    annotations: "@defaultonly"
+    scope: DEFAULT_ONLY
+  }
+  size: 1024
+}
+actions {
+  preamble {
+    id: 21257015
+    name: "NoAction"
+    alias: "NoAction"
+    annotations: "@noWarn(\"unused\")"
+  }
+}
+actions {
+  preamble {
+    id: 18067284
+    name: "I.process_packet"
+    alias: "process_packet"
+  }
+  params {
+    id: 1
+    name: "a"
+    bitwidth: 8
+  }
+  params {
+    id: 2
+    name: "b"
+    bitwidth: 32
+  }
+  params {
+    id: 3
+    name: "c"
+    bitwidth: 128
+  }
+}
+type_info {
+}

@@ -58,12 +58,17 @@ RUN pip3 install \
     scapy \
     "clang-format>=15.0.4"
 
-# Build P4 projects
+# P4 projects
 COPY dev $WORKDIR/dev
 WORKDIR $WORKDIR/dev
 RUN ./build-pi.sh
 RUN ./build-bmv2.sh
 RUN ./build-pi-bmv2.sh
 RUN ./build-p4c.sh
+
+# Misc tools
+RUN apt-get update && apt-get install -y \
+    graphviz \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR $WORKDIR
