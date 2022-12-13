@@ -76,13 +76,13 @@ RUN pip3 install \
 COPY dev $WORKDIR/dev
 WORKDIR $WORKDIR/dev
 
-# Build v1model/bmv2/P4Runtime
+# Build bmv2/v1model/P4Runtime
 RUN ./build-pi.sh
 RUN ./build-bmv2.sh
 RUN ./build-pi-bmv2.sh
 RUN ./build-p4c.sh
 
-# Build PNA/DPDK/TDI
+# Build DPDK/PNA/TDI
 ENV SDE=$WORKDIR/dev/sde
 ENV SDE_INSTALL=$SDE/install
 RUN ./build-p4-dpdk-target.sh

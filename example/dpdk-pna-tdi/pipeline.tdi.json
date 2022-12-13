@@ -1,14 +1,14 @@
 {
   "program_name" : "pipeline",
-  "build_date" : "Tue Dec 13 06:09:38 2022",
+  "build_date" : "Tue Dec 13 06:56:17 2022",
   "compile_command" : "p4c-dpdk --arch pna --tdi pipeline.tdi.json --context pipeline.ctx.json -o pipeline.spec pipeline.p4",
   "compiler_version" : "0.1 (SHA:  BUILD: RELEASE)",
   "schema_version" : "0.1",
   "target" : "DPDK",
   "tables" : [
     {
-      "name" : "pipe.MainControl.forward",
-      "id" : 42801030,
+      "name" : "pipe.MyMainControl.forward",
+      "id" : 47159625,
       "table_type" : "MatchAction_Direct",
       "size" : 1024,
       "annotations" : [],
@@ -30,8 +30,8 @@
       ],
       "action_specs" : [
         {
-          "id" : 27868267,
-          "name" : "MainControl.process_packet",
+          "id" : 30701576,
+          "name" : "MyMainControl.process_packet",
           "action_scope" : "TableAndDefault",
           "annotations" : [],
           "data" : [

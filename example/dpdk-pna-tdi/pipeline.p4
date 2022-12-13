@@ -1,5 +1,5 @@
 #include <core.p4>
-#include <v1model.p4>
+#include <pna.p4>
 
 header eth_h {
     bit<48> dst_addr;
@@ -20,8 +20,12 @@ struct header_t {
 
 struct metadata_t {}
 
-// Parser
-parser P(packet_in pkt, out header_t hdr, inout metadata_t meta, inout standard_metadata_t std_meta) {
+parser MyMainParser(
+    packet_in pkt,
+    out header_t hdr,
+    inout metadata_t meta,
+    in pna_main_parser_input_metadata_t istd
+) {
     state start {
         pkt.extract(hdr.eth);
         pkt.extract(hdr.custom);
@@ -29,11 +33,19 @@ parser P(packet_in pkt, out header_t hdr, inout metadata_t meta, inout standard_
     }
 }
 
-// VerifyChecksum
-control VC(inout header_t hdr, inout metadata_t meta) { apply {} }
+control MyPreControl(
+    in header_t hdr,
+    inout metadata_t meta,
+    in pna_pre_input_metadata_t istd,
+    inout pna_pre_output_metadata_t ostd
+) { apply {} }
 
-// Ingress
-control I(inout header_t hdr, inout metadata_t meta, inout standard_metadata_t std_meta) {
+control MyMainControl(
+    inout header_t hdr,
+    inout metadata_t meta,
+    in pna_main_input_metadata_t istd,
+    inout pna_main_output_metadata_t ostd
+) {
     action process_packet(bit<8> a, bit<32> b, bit<128> c) {
         hdr.custom.a = a;
         hdr.custom.b = b;
@@ -54,18 +66,21 @@ control I(inout header_t hdr, inout metadata_t meta, inout standard_metadata_t s
     }
 }
 
-// Egress
-control E(inout header_t hdr, inout metadata_t meta, inout standard_metadata_t std_meta) { apply {} }
-
-// ComputeChecksum
-control CC(inout header_t hdr, inout metadata_t meta) { apply {} }
-
-// Deparser
-control D(packet_out pkt, in header_t hdr) {
+control MyMainDeparser(
+    packet_out pkt,
+    in header_t hdr,
+    in metadata_t meta,
+    in pna_main_output_metadata_t ostd
+) {
     apply {
         pkt.emit(hdr.eth);
         pkt.emit(hdr.custom);
     }
 }
 
-V1Switch(P(), VC(), I(), E(), CC(), D()) main;
+PNA_NIC(
+    MyMainParser(),
+    MyPreControl(),
+    MyMainControl(),
+    MyMainDeparser()
+) main;

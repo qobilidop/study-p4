@@ -3,8 +3,8 @@ pkg_info {
 }
 tables {
   preamble {
-    id: 43901978
-    name: "I.forward"
+    id: 46460945
+    name: "MyIngress.forward"
     alias: "forward"
   }
   match_fields {
@@ -14,7 +14,7 @@ tables {
     match_type: EXACT
   }
   action_refs {
-    id: 18067284
+    id: 17701703
   }
   action_refs {
     id: 21257015
@@ -33,8 +33,8 @@ actions {
 }
 actions {
   preamble {
-    id: 18067284
-    name: "I.process_packet"
+    id: 17701703
+    name: "MyIngress.process_packet"
     alias: "process_packet"
   }
   params {

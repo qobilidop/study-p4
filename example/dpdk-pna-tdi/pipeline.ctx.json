@@ -1,14 +1,14 @@
 {
   "program_name" : "pipeline",
-  "build_date" : "Tue Dec 13 06:09:38 2022",
+  "build_date" : "Tue Dec 13 06:56:17 2022",
   "compile_command" : "p4c-dpdk --arch pna --tdi pipeline.tdi.json --context pipeline.ctx.json -o pipeline.spec pipeline.p4",
   "compiler_version" : "0.1 (SHA:  BUILD: RELEASE)",
   "schema_version" : "0.1",
   "target" : "DPDK",
   "tables" : [
     {
-      "name" : "MainControl.forward",
-      "target_name" : "MainControl.forward",
+      "name" : "MyMainControl.forward",
+      "target_name" : "MyMainControl.forward",
       "direction" : "",
       "handle" : 65536,
       "table_type" : "match",
@@ -33,8 +33,8 @@
       ],
       "actions" : [
         {
-          "name" : "MainControl.process_packet",
-          "target_name" : "MainControl.process_packet",
+          "name" : "MyMainControl.process_packet",
+          "target_name" : "MyMainControl.process_packet",
           "handle" : 131072,
           "constant_default_action" : false,
           "is_compiler_added_action" : false,
@@ -80,7 +80,7 @@
           {
             "action_format" : [
               {
-                "action_name" : "MainControl.process_packet",
+                "action_name" : "MyMainControl.process_packet",
                 "action_handle" : 131072,
                 "immediate_fields" : [
                   {

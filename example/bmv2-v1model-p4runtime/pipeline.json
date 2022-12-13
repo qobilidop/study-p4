@@ -141,9 +141,9 @@
       "id" : 0,
       "source_info" : {
         "filename" : "pipeline.p4",
-        "line" : 64,
+        "line" : 76,
         "column" : 8,
-        "source_fragment" : "D"
+        "source_fragment" : "MyDeparser"
       },
       "order" : ["eth", "custom"],
       "primitives" : []
@@ -162,7 +162,7 @@
       "primitives" : []
     },
     {
-      "name" : "I.process_packet",
+      "name" : "MyIngress.process_packet",
       "id" : 1,
       "runtime_data" : [
         {
@@ -193,7 +193,7 @@
           ],
           "source_info" : {
             "filename" : "pipeline.p4",
-            "line" : 38,
+            "line" : 46,
             "column" : 8,
             "source_fragment" : "hdr.custom.a = a"
           }
@@ -212,7 +212,7 @@
           ],
           "source_info" : {
             "filename" : "pipeline.p4",
-            "line" : 39,
+            "line" : 47,
             "column" : 8,
             "source_fragment" : "hdr.custom.b = b"
           }
@@ -231,7 +231,7 @@
           ],
           "source_info" : {
             "filename" : "pipeline.p4",
-            "line" : 40,
+            "line" : 48,
             "column" : 8,
             "source_fragment" : "hdr.custom.c = c"
           }
@@ -245,18 +245,18 @@
       "id" : 0,
       "source_info" : {
         "filename" : "pipeline.p4",
-        "line" : 36,
+        "line" : 40,
         "column" : 8,
-        "source_fragment" : "I"
+        "source_fragment" : "MyIngress"
       },
-      "init_table" : "I.forward",
+      "init_table" : "MyIngress.forward",
       "tables" : [
         {
-          "name" : "I.forward",
+          "name" : "MyIngress.forward",
           "id" : 0,
           "source_info" : {
             "filename" : "pipeline.p4",
-            "line" : 43,
+            "line" : 51,
             "column" : 10,
             "source_fragment" : "forward"
           },
@@ -275,10 +275,10 @@
           "support_timeout" : false,
           "direct_meters" : null,
           "action_ids" : [1, 0],
-          "actions" : ["I.process_packet", "NoAction"],
+          "actions" : ["MyIngress.process_packet", "NoAction"],
           "base_default_next" : null,
           "next_tables" : {
-            "I.process_packet" : null,
+            "MyIngress.process_packet" : null,
             "NoAction" : null
           },
           "default_entry" : {
@@ -297,9 +297,9 @@
       "id" : 1,
       "source_info" : {
         "filename" : "pipeline.p4",
-        "line" : 58,
+        "line" : 65,
         "column" : 8,
-        "source_fragment" : "E"
+        "source_fragment" : "MyEgress"
       },
       "init_table" : null,
       "tables" : [],
