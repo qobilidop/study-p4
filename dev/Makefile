@@ -2,6 +2,10 @@
 update:
 	git submodule update --init --recursive
 
+.PHONY: pull-all
+pull-all:
+	find . -maxdepth 1 -mindepth 1 -type d -exec sh -c 'cd "$1" && pwd' shell {} \;
+
 .PHONY: build-all
 build-all:
 	./build-pi.sh
