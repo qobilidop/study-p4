@@ -4,7 +4,7 @@ update:
 
 .PHONY: pull-all
 pull-all:
-	find . -maxdepth 1 -mindepth 1 -type d -exec sh -c 'cd "$1" && pwd' shell {} \;
+	find . -maxdepth 1 -mindepth 1 -type d -execdir bash -c 'cd "{}" && [ -a .git ] && pwd && git pull' \;
 
 .PHONY: build-all
 build-all:
