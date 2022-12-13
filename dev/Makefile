@@ -4,7 +4,7 @@ update:
 
 .PHONY: pull-all
 pull-all:
-	find . -maxdepth 1 -mindepth 1 -type d -execdir bash -c 'cd "{}" && [ -a .git ] && pwd && git pull' \;
+	find . -maxdepth 1 -mindepth 1 -type d -exec bash -c 'cd "{}" && [ -a .git ] && pwd && git pull' \;
 
 .PHONY: build-all
 build-all:
@@ -12,3 +12,4 @@ build-all:
 	./build-bmv2.sh
 	./build-pi-bmv2.sh
 	./build-p4c.sh
+	./build-p4-dpdk-target.sh
