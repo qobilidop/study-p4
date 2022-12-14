@@ -1,10 +1,5 @@
 {
-  "program_name" : "pipeline",
-  "build_date" : "Wed Dec 14 00:21:42 2022",
-  "compile_command" : "p4c-dpdk pipeline.p4 --arch pna -o pipeline.spec --bf-rt-schema pipeline.bfrt.json --tdi pipeline.tdi.json --context pipeline.ctx.json",
-  "compiler_version" : "0.1 (SHA:  BUILD: RELEASE)",
-  "schema_version" : "0.1",
-  "target" : "DPDK",
+  "schema_version" : "1.0.0",
   "tables" : [
     {
       "name" : "pipe.MyMainControl.forward",

@@ -1,7 +1,7 @@
 {
   "program_name" : "pipeline",
-  "build_date" : "Tue Dec 13 06:56:17 2022",
-  "compile_command" : "p4c-dpdk --arch pna --tdi pipeline.tdi.json --context pipeline.ctx.json -o pipeline.spec pipeline.p4",
+  "build_date" : "Wed Dec 14 00:21:42 2022",
+  "compile_command" : "p4c-dpdk pipeline.p4 --arch pna -o pipeline.spec --bf-rt-schema pipeline.bfrt.json --tdi pipeline.tdi.json --context pipeline.ctx.json",
   "compiler_version" : "0.1 (SHA:  BUILD: RELEASE)",
   "schema_version" : "0.1",
   "target" : "DPDK",
@@ -51,15 +51,22 @@
             {
               "name" : "b",
               "start_bit" : 0,
-              "bit_width" : 32,
+              "bit_width" : 12,
               "position" : 1,
               "byte_array_index" : 1
             },
             {
               "name" : "c",
               "start_bit" : 0,
-              "bit_width" : 128,
+              "bit_width" : 20,
               "position" : 2,
+              "byte_array_index" : 2
+            },
+            {
+              "name" : "d",
+              "start_bit" : 0,
+              "bit_width" : 128,
+              "position" : 3,
               "byte_array_index" : 5
             }
           ]
@@ -91,10 +98,15 @@
                   {
                     "param_name" : "b",
                     "dest_start" : 1,
-                    "dest_width" : 32
+                    "dest_width" : 12
                   },
                   {
                     "param_name" : "c",
+                    "dest_start" : 2,
+                    "dest_width" : 20
+                  },
+                  {
+                    "param_name" : "d",
                     "dest_start" : 5,
                     "dest_width" : 128
                   }

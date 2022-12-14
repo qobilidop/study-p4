@@ -9,8 +9,9 @@ header eth_h {
 
 header custom_h {
     bit<8> a;
-    bit<32> b;
-    bit<128> c;
+    bit<12> b;
+    bit<20> c;
+    bit<128> d;
 }
 
 struct header_t {
@@ -46,10 +47,11 @@ control MyMainControl(
     in pna_main_input_metadata_t istd,
     inout pna_main_output_metadata_t ostd
 ) {
-    action process_packet(bit<8> a, bit<32> b, bit<128> c) {
+    action process_packet(bit<8> a, bit<12> b, bit<20> c, bit<128> d) {
         hdr.custom.a = a;
         hdr.custom.b = b;
         hdr.custom.c = c;
+        hdr.custom.d = d;
     }
 
     table forward {
