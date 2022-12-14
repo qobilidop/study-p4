@@ -1,10 +1,19 @@
 // https://github.com/devcontainers/templates/blob/main/src/docker-existing-dockerfile/.devcontainer/devcontainer.json
+// https://containers.dev/implementors/json_reference/
 {
     "name": "play-p4",
     "build": {
         "context": "..",
         "dockerfile": "Dockerfile"
     },
+    "privileged": true,
+    "mounts": [
+        {
+            "source": "/dev/hugepages",
+            "target": "/dev/hugepages",
+            "type": "bind"
+        }
+    ],
     "customizations": {
         "vscode": {
             "extensions": [
@@ -12,6 +21,5 @@
                 "ms-vscode.cpptools"
             ]
         }
-    },
-    "remoteUser": "root"
+    }
 }

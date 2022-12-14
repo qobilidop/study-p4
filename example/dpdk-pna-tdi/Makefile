@@ -5,9 +5,9 @@ P4_TARGET = dpdk
 P4_ARCH = pna
 
 P4_SPEC = $(P4_PROG).spec
-P4_BFRT = $(P4_PROG).bfrt.json
-P4_TDI = $(P4_PROG).tdi.json
-P4_CTX = $(P4_PROG).ctx.json
+P4_BFRT = $(P4_PROG)_bfrt.json
+P4_TDI = $(P4_PROG)_tdi.json
+P4_CTX = $(P4_PROG)_ctx.json
 P4_OUTPUTS = $(P4_SPEC) $(P4_BFRT) $(P4_TDI) $(P4_CTX)
 
 P4_GRAPH_DIR = graph
@@ -36,4 +36,4 @@ $(P4_GRAPH_DIR)/fullGraph.png: $(P4_SRC)
 
 .PHONY: clean
 clean:
-	rm -rf $(P4_OUTPUTS) $(P4_GRAPH_DIR)
+	rm -rf $(P4_OUTPUTS) $(P4_GRAPH_DIR) switch_log
