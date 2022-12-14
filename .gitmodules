@@ -1,16 +1,16 @@
-[submodule "dev/behavioral-model"]
-	path = dev/behavioral-model
+[submodule "env/behavioral-model"]
+	path = env/behavioral-model
 	url = https://github.com/p4lang/behavioral-model.git
 	branch = main
-[submodule "dev/p4-dpdk-target"]
-	path = dev/p4-dpdk-target
+[submodule "env/p4-dpdk-target"]
+	path = env/p4-dpdk-target
 	url = https://github.com/p4lang/p4-dpdk-target.git
 	branch = main
-[submodule "dev/p4c"]
-	path = dev/p4c
+[submodule "env/p4c"]
+	path = env/p4c
 	url = https://github.com/p4lang/p4c.git
 	branch = main
-[submodule "dev/PI"]
-	path = dev/PI
+[submodule "env/PI"]
+	path = env/PI
 	url = https://github.com/p4lang/PI.git
 	branch = main

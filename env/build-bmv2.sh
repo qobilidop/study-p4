@@ -5,6 +5,6 @@ set -ex
 cd behavioral-model
 ./autogen.sh
 ./configure --with-pdfixed --with-pi --with-stress-tests --enable-debugger --enable-coverage --enable-Werror
-make -j"$(nproc)"
-make install
+make -j
+sudo make install
 sudo ldconfig

@@ -2,13 +2,23 @@
 
 Personal playground for exploring [P4](https://p4.org).
 
-I'm trying out several P4 projects and making some examples in this repo.
+I'm trying out several P4 projects and summarizing what I learned into examples in this repo.
+
+## Repo
+
+Clone this repo with submodules:
+```console
+$ git clone --recursive https://github.com/qobilidop/play-p4.git
+```
+
+Update submodules recursively:
+```console
+$ git submodule update --init --recursive
+```
 
 ## Environment
 
-Running the examples needs an environment.
-
-If you use [VS Code + dev container](https://code.visualstudio.com/docs/devcontainers/containers), simply run the VS Code command: `Dev Containers: Rebuild and Reopen in Container`. The first time to build the container might take a long time, as most projects are compiled from source.
+If you use [VS Code + dev container](https://code.visualstudio.com/docs/devcontainers/containers), simply run the VS Code command: `Dev Containers: Rebuild and Reopen in Container`. The first time to build the container might take a rather long time, as most projects are compiled from source.
 
 Following are the major P4 projects built in the container:
 
@@ -18,7 +28,7 @@ Following are the major P4 projects built in the container:
 - [p4c](https://github.com/p4lang/p4c)
 - [PI](https://github.com/p4lang/PI)
 
-I personally found [dev container](https://containers.dev) pretty convenient to use. But if you don't use it, you could also check out my [Dockerfile](.devcontainer/Dockerfile) (based on Ubuntu 20.04) and set up the environment in your preferred way.
+I personally find [dev container](https://containers.dev) pretty convenient to use. But if you don't use it, you can also take my [Dockerfile](.devcontainer/Dockerfile) as a reference and set up the environment in your preferred way.
 
 ## Example
 

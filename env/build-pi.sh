@@ -5,6 +5,6 @@ set -ex
 cd PI
 ./autogen.sh
 ./configure --enable-Werror --without-bmv2 --without-internal-rpc --without-cli --with-proto --with-sysrepo
-make -j"$(nproc)"
-make install
+make -j
+sudo make install
 sudo ldconfig

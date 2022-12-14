@@ -19,5 +19,5 @@ cd p4-dpdk-target
 ./autogen.sh
 ./configure --prefix="$SDE_INSTALL"
 make -j
-make install
+sudo make install
 sudo ldconfig
