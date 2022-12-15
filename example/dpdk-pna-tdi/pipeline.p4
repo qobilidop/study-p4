@@ -8,10 +8,10 @@ header eth_h {
 }
 
 header custom_h {
-    bit<8> a;
-    bit<12> b;
-    bit<20> c;
-    bit<128> d;
+    bit<1> a;
+    bit<8> b;
+    bit<21> c;
+    bit<98> d;
 }
 
 struct header_t {
@@ -39,7 +39,9 @@ control MyPreControl(
     inout metadata_t meta,
     in pna_pre_input_metadata_t istd,
     inout pna_pre_output_metadata_t ostd
-) { apply {} }
+) {
+    apply {}
+}
 
 control MyMainControl(
     inout header_t hdr,
@@ -47,11 +49,22 @@ control MyMainControl(
     in pna_main_input_metadata_t istd,
     inout pna_main_output_metadata_t ostd
 ) {
-    action process_packet(bit<8> a, bit<12> b, bit<20> c, bit<128> d) {
+    action drop() {
+        drop_packet();
+    }
+
+    action process_and_send(
+        bit<1> a,
+        bit<8> b,
+        bit<21> c,
+        bit<98> d,
+        PortId_t port
+    ) {
         hdr.custom.a = a;
         hdr.custom.b = b;
         hdr.custom.c = c;
         hdr.custom.d = d;
+        send_to_port(port);
     }
 
     table forward {
@@ -59,8 +72,10 @@ control MyMainControl(
             hdr.eth.dst_addr: exact;
         }
         actions = {
-            process_packet;
+            process_and_send;
+            drop;
         }
+        const default_action = drop();
     }
 
     apply {
@@ -75,8 +90,7 @@ control MyMainDeparser(
     in pna_main_output_metadata_t ostd
 ) {
     apply {
-        pkt.emit(hdr.eth);
-        pkt.emit(hdr.custom);
+        pkt.emit(hdr);
     }
 }
 

@@ -17,6 +17,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                "fattaholmanan.p4-vscode-extension",
                 "ms-azuretools.vscode-docker",
                 "ms-vscode.cpptools"
             ]

@@ -1,6 +1,6 @@
 {
   "program_name" : "pipeline",
-  "build_date" : "Wed Dec 14 19:39:20 2022",
+  "build_date" : "Thu Dec 15 00:09:51 2022",
   "compile_command" : "p4c-dpdk pipeline.p4 --arch pna -o pipeline.spec --bf-rt-schema pipeline_bfrt.json --tdi pipeline_tdi.json --context pipeline_ctx.json",
   "compiler_version" : "0.1 (SHA:  BUILD: RELEASE)",
   "schema_version" : "0.1",
@@ -13,7 +13,7 @@
       "size" : 1024,
       "annotations" : [],
       "depends_on" : [],
-      "has_const_default_action" : false,
+      "has_const_default_action" : true,
       "key" : [
         {
           "id" : 1,
@@ -30,8 +30,8 @@
       ],
       "action_specs" : [
         {
-          "id" : 30701576,
-          "name" : "MyMainControl.process_packet",
+          "id" : 24407697,
+          "name" : "MyMainControl.process_and_send",
           "action_scope" : "TableAndDefault",
           "annotations" : [],
           "data" : [
@@ -44,7 +44,7 @@
               "annotations" : [],
               "type" : {
                 "type" : "bytes",
-                "width" : 8
+                "width" : 1
               }
             },
             {
@@ -56,7 +56,7 @@
               "annotations" : [],
               "type" : {
                 "type" : "bytes",
-                "width" : 12
+                "width" : 8
               }
             },
             {
@@ -68,7 +68,7 @@
               "annotations" : [],
               "type" : {
                 "type" : "bytes",
-                "width" : 20
+                "width" : 21
               }
             },
             {
@@ -80,20 +80,28 @@
               "annotations" : [],
               "type" : {
                 "type" : "bytes",
-                "width" : 128
+                "width" : 98
+              }
+            },
+            {
+              "id" : 5,
+              "name" : "port",
+              "repeated" : false,
+              "mandatory" : true,
+              "read_only" : false,
+              "annotations" : [],
+              "type" : {
+                "type" : "bytes",
+                "width" : 32
               }
             }
           ]
         },
         {
-          "id" : 21257015,
-          "name" : "NoAction",
-          "action_scope" : "DefaultOnly",
-          "annotations" : [
-            {
-              "name" : "@defaultonly"
-            }
-          ],
+          "id" : 31449926,
+          "name" : "MyMainControl.drop",
+          "action_scope" : "TableAndDefault",
+          "annotations" : [],
           "data" : []
         }
       ],

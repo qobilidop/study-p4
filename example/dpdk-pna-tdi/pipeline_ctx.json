@@ -1,6 +1,6 @@
 {
   "program_name" : "pipeline",
-  "build_date" : "Wed Dec 14 19:39:20 2022",
+  "build_date" : "Thu Dec 15 00:09:51 2022",
   "compile_command" : "p4c-dpdk pipeline.p4 --arch pna -o pipeline.spec --bf-rt-schema pipeline_bfrt.json --tdi pipeline_tdi.json --context pipeline_ctx.json",
   "compiler_version" : "0.1 (SHA:  BUILD: RELEASE)",
   "schema_version" : "0.1",
@@ -33,49 +33,56 @@
       ],
       "actions" : [
         {
-          "name" : "MyMainControl.process_packet",
-          "target_name" : "MyMainControl.process_packet",
+          "name" : "MyMainControl.process_and_send",
+          "target_name" : "MyMainControl.process_and_send",
           "handle" : 131072,
           "constant_default_action" : false,
           "is_compiler_added_action" : false,
           "allowed_as_hit_action" : true,
-          "allowed_as_default_action" : true,
+          "allowed_as_default_action" : false,
           "p4_parameters" : [
             {
               "name" : "a",
               "start_bit" : 0,
-              "bit_width" : 8,
+              "bit_width" : 1,
               "position" : 0,
               "byte_array_index" : 0
             },
             {
               "name" : "b",
               "start_bit" : 0,
-              "bit_width" : 12,
+              "bit_width" : 8,
               "position" : 1,
-              "byte_array_index" : 1
+              "byte_array_index" : 0
             },
             {
               "name" : "c",
               "start_bit" : 0,
-              "bit_width" : 20,
+              "bit_width" : 21,
               "position" : 2,
-              "byte_array_index" : 2
+              "byte_array_index" : 1
             },
             {
               "name" : "d",
               "start_bit" : 0,
-              "bit_width" : 128,
+              "bit_width" : 98,
               "position" : 3,
-              "byte_array_index" : 5
+              "byte_array_index" : 3
+            },
+            {
+              "name" : "port",
+              "start_bit" : 0,
+              "bit_width" : 32,
+              "position" : 4,
+              "byte_array_index" : 16
             }
           ]
         },
         {
-          "name" : "NoAction",
-          "target_name" : "NoAction",
+          "name" : "MyMainControl.drop",
+          "target_name" : "MyMainControl.drop",
           "handle" : 131073,
-          "constant_default_action" : false,
+          "constant_default_action" : true,
           "is_compiler_added_action" : false,
           "allowed_as_hit_action" : true,
           "allowed_as_default_action" : true,
@@ -87,33 +94,38 @@
           {
             "action_format" : [
               {
-                "action_name" : "MyMainControl.process_packet",
+                "action_name" : "MyMainControl.process_and_send",
                 "action_handle" : 131072,
                 "immediate_fields" : [
                   {
                     "param_name" : "a",
                     "dest_start" : 0,
-                    "dest_width" : 8
+                    "dest_width" : 1
                   },
                   {
                     "param_name" : "b",
-                    "dest_start" : 1,
-                    "dest_width" : 12
+                    "dest_start" : 0,
+                    "dest_width" : 8
                   },
                   {
                     "param_name" : "c",
-                    "dest_start" : 2,
-                    "dest_width" : 20
+                    "dest_start" : 1,
+                    "dest_width" : 21
                   },
                   {
                     "param_name" : "d",
-                    "dest_start" : 5,
-                    "dest_width" : 128
+                    "dest_start" : 3,
+                    "dest_width" : 98
+                  },
+                  {
+                    "param_name" : "port",
+                    "dest_start" : 16,
+                    "dest_width" : 32
                   }
                 ]
               },
               {
-                "action_name" : "NoAction",
+                "action_name" : "MyMainControl.drop",
                 "action_handle" : 131073,
                 "immediate_fields" : []
               }
