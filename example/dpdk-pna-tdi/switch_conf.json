@@ -23,22 +23,22 @@
             "p4_programs": [
                 {
                     "program-name": "pipeline",
-                    "bfrt-config": "share/play-p4/dpdk-pna-tdi/pipeline_tdi.json",
-                    "port-config": "share/play-p4/dpdk-pna-tdi/switch_port.json",
+                    "bfrt-config": "share/study-p4/dpdk-pna-tdi/pipeline_tdi.json",
+                    "port-config": "share/study-p4/dpdk-pna-tdi/switch_port.json",
                     "p4_pipelines": [
                         {
                             "p4_pipeline_name": "pipe",
                             "core_id": 1,
                             "numa_node": 0,
-                            "context": "share/play-p4/dpdk-pna-tdi/pipeline_ctx.json",
-                            "config": "share/play-p4/dpdk-pna-tdi/pipeline.spec",
+                            "context": "share/study-p4/dpdk-pna-tdi/pipeline_ctx.json",
+                            "config": "share/study-p4/dpdk-pna-tdi/pipeline.spec",
                             "pipe_scope": [
                                 0,
                                 1,
                                 2,
                                 3
                             ],
-                            "path": "share/play-p4/dpdk-pna-tdi"
+                            "path": "share/study-p4/dpdk-pna-tdi"
                         }
                     ]
                 }

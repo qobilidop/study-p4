@@ -1,14 +1,14 @@
-# Play P4
+# Study P4
 
-Personal playground for exploring [P4](https://p4.org).
+A personal study of [P4](https://p4.org).
 
-In this repo, I'm exploring various P4 projects and trying to summarize what I learned into illustrative examples. Hopefully these are useful not only to myself.
+In this repo, I'm exploring various P4 projects, and trying to make some examples to summarize what I learned.
 
 ## Repo
 
 Clone this repo with submodules:
 ```console
-$ git clone --recursive https://github.com/qobilidop/play-p4.git
+$ git clone --recursive https://github.com/qobilidop/study-p4.git
 ```
 
 Update submodules recursively:

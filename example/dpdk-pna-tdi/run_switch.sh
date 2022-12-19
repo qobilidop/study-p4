@@ -14,7 +14,7 @@ export PYTHONHOME="$SDE_INSTALL/lib/python3.10"
 # switch.conf.json looks up config files relative to $SDE_INSTALL,
 # so let's copy them over.
 CONF_FILES=(pipeline_tdi.json switch_port.json pipeline_ctx.json pipeline.spec)
-CONF_DIR="$SDE_INSTALL/share/play-p4/dpdk-pna-tdi"
+CONF_DIR="$SDE_INSTALL/share/study-p4/dpdk-pna-tdi"
 rm -rf "$CONF_DIR"
 mkdir -p "$CONF_DIR"
 cp "${CONF_FILES[@]}" "$CONF_DIR"

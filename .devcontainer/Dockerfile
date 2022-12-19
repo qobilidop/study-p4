@@ -1,7 +1,7 @@
 # https://github.com/p4lang/third-party/blob/main/Dockerfile
 FROM p4lang/third-party:latest
 
-ENV WORKDIR /workspaces/play-p4
+ENV WORKDIR /workspaces/study-p4
 
 # Set locale
 # https://stackoverflow.com/q/28405902
